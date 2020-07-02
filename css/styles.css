@@ -1,0 +1,25 @@
+
+body {
+    padding: 22px;
+}
+
+#transcript {
+    border: 1px solid #777;
+    height: 200px;
+    width: 600px;
+    overflow: scroll;
+}
+
+#subtitles {
+    margin-top: 22px;
+}
+
+#buttons {
+    margin-top: 22px;
+}
+
+.button {
+    display: block;
+    margin-bottom: 22px;
+    padding: 22px;
+}
