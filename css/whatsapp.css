@@ -38,8 +38,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
 
   .screen {
-      height: 55%;
-      width: 50%;
+      height: 100%;
+      width: 100%;
   }
   
   .marvel-device .screen {
@@ -78,7 +78,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   /* Chat */
   
   .chat {
-    height: calc(100% - 69px);
+    height: 100%
   }
   
   .chat-container {
@@ -160,11 +160,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   /* Conversation */
   
   .conversation {
-    height: calc(100% - 12px);
+    height: 100%;
     position: relative;
     background: #efe7dd url("https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg") repeat;
     z-index: 0;
-    padding-bottom: 10px;
   }
   
   .conversation ::-webkit-scrollbar {
@@ -183,7 +182,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   
   .conversation .conversation-container {
-    height: calc(100% - 118px);
+    height: calc(100% - 88px);
     box-shadow: inset 0 10px 10px -10px #000000;
     overflow-x: hidden;
     padding: 0 16px;
@@ -323,7 +322,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     flex-direction: row;
     align-items: flex-end;
     overflow: hidden;
-    height: 100px;
+    height: 80px;
     width: 100%;
     z-index: 2;
   }
@@ -419,41 +418,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   
   /* Small Screens */
   
-  @media (max-width: 768px) {
-    .marvel-device.nexus5 {
-      border-radius: 0;
-      flex: none;
-      padding: 0;
-      max-width: none;
-      overflow: hidden;
-      height: 100%;
-      width: 100%;
-    }
-  
-    .marvel-device > .screen .chat {
-      visibility: visible;
-    }
-  
-    .marvel-device {
-      visibility: hidden;
-    }
-  
-    .marvel-device .status-bar {
-      display: none;
-    }
-  
-    .screen-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-  
-    .conversation {
-      height: calc(100vh - 55px);
-    }
-    .conversation .conversation-container {
-      height: calc(100vh - 120px);
-    }
-  }

@@ -4,7 +4,8 @@
     height: 66px;
     /*line-height: 33px; this caused the text to not be vertically centred*/
     padding: 5px 15px;
-    margin-left: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
     font-size: 15px;
     color: white;
     text-decoration: none;
