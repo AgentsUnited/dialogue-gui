@@ -1,8 +1,6 @@
 
 var client = Stomp.client(serverURL);
 
-var uiTranscript = document.getElementById("transcript");
-var uiSubtitles = document.getElementById("subtitles");
 var uiButtons = document.getElementById("buttons");
 
 var moveSetCache = [];
@@ -58,33 +56,41 @@ function processMoveStatusUpdate(msg){
 
     console.log("Found move in cache: ", move);
     if(msg.status === "MOVE_REALIZATION"){
-        uiSubtitles.innerHTML = move.actorName + ": " + move.opener;
+        //maybe do something like "... is talking"??
     } else if(msg.status === "MOVE_COMPLETED"){
-        uiTranscript.innerHTML += move.actorName + ": " + move.opener + "<br />";
-        uiTranscript.scrollTop = uiTranscript.scrollHeight;
+        if(move.actorName === "Bob"){
+            postUserMessage(move.opener);
+        } else {
+            postAgentMessage(move.actorName, move.opener);
+        }
     }
 }
 
 function generateUIButtons(moves){
     for(let move of moves){
         let button = document.createElement("button");
-        button.innerHTML = move.moveID + " ::: " + move.opener;
-        button.className = "button";
+        button.innerHTML = move.opener;
+        button.classList.add("button", "blue", "alt");
         button.addEventListener ("click", function() {
-            let data = {
-                "cmd" : "move_selected",
-                "uiId" : "",
-                "moveID" : move.moveID,
-                "actorIdentifier" : move.actorIdentifier,
-                "skipPlanner" : false,
-                "userInput" : "",
-                "target" : move.target 
-            };
-            console.log("User pressed button " + move.moveID);
-            send(JSON.stringify(data));
+            buttonPressed(move);
           });
         uiButtons.appendChild(button);
     }
+}
+
+function buttonPressed(move){
+    let data = {
+        "cmd" : "move_selected",
+        "uiId" : "",
+        "moveID" : move.moveID,
+        "actorIdentifier" : move.actorIdentifier,
+        "skipPlanner" : false,
+        "userInput" : "",
+        "target" : move.target 
+    };
+    console.log("User pressed button " + move.moveID);
+    send(JSON.stringify(data));
+    uiButtons.innerHTML = "";
 }
 
 function init(){

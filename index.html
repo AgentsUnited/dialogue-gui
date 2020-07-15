@@ -8,17 +8,51 @@
   <meta name="description" content="A graphical user interface for interacting with the agents and progressing through the dialogue">
   <meta name="author" content="UTwente HMI">
 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"> 
+  <link rel="stylesheet" href="css/whatsapp.css">
+  <link rel="stylesheet" href="css/main.css">
 
 </head>
 
 <body>
-    <div id="transcript"></div>
-    <div id="subtitles"></div>
-    <div id="buttons"></div>
+  <div class="page">
+    <div class="screen">
+      <div class="screen-container">
+        <div class="chat">
+          <div class="chat-container">
+            <div class="user-bar">
+              <div class="avatar">
+                <img src="img/couch-logo.png" alt="Council of Coaches">
+              </div>
+              <div class="name">
+                <span>Council of Coaches</span>
+                <span class="status">Francois, Olivia</span>
+              </div>
+              
+            </div>
+            <div class="conversation">
+              <div class="conversation-container">
+                
+              </div>
+              <div class="conversation-compose">
+                <div class="emoji">
+                </div>
+                <div class="input-msg" id="buttons"></div>
+                <div class="photo">
+                </div>
+                <button class="send">
+                  </button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <script src="lib/stomp.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/main.js"></script>
+  <script src="lib/stomp.js"></script>
+  <script src="lib/whatsapp.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
