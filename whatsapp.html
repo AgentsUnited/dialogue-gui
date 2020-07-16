@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Agents United User Interface</title>
+  <meta name="description" content="A graphical user interface for interacting with the agents and progressing through the dialogue">
+  <meta name="author" content="UTwente HMI">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"> 
+  <link rel="stylesheet" href="css/whatsapp.css">
+  <link rel="stylesheet" href="css/buttons.css">
+
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+
+</head>
+
+<body>
+  <div class="page">
+    <div class="screen">
+      <div class="screen-container">
+        <div class="chat">
+          <div class="chat-container">
+            <div class="user-bar">
+              <div class="avatar">
+                <img src="img/couch-logo.png" alt="Council of Coaches">
+              </div>
+              <div class="name">
+                <span>Council of Coaches</span>
+                <span class="status">Francois, Olivia, You</span>
+              </div>
+              
+            </div>
+            <div class="conversation">
+              <div class="conversation-container">
+                
+              </div>
+              <div class="conversation-compose">
+                <div class="emoji">
+                </div>
+                <div class="input-msg" id="buttons"></div>
+                <div class="photo">
+                </div>
+                <button class="send">
+                  </button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="lib/stomp.js"></script>
+  <script src="js/helpers.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/moveProcessing.js"></script>
+  <script src="lib/whatsapp.js"></script>
+</body>
+</html>

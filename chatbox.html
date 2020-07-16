@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Agents United User Interface</title>
+  <meta name="description" content="A graphical user interface for interacting with the agents and progressing through the dialogue">
+  <meta name="author" content="UTwente HMI">
+
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/chatbox.css">
+
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="title">Chatting with Council of Coaches</div>
+    <div id="chatbox">
+      <div id="messages"></div>
+      <div id="replies"></div>
+    </div>
+  </div>
+  
+  <script src="lib/stomp.js"></script>
+  <script src="js/helpers.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/moveProcessing.js"></script>
+  <script src="js/chatbox.js"></script>
+</body>
+</html>
