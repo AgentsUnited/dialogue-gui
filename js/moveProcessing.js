@@ -1,7 +1,12 @@
+    //This file has a collection of functions that register to the ActiveMQ topics for the incoming movesets and move status update events.
+    //Implementing GUI styles can further process/display these incoming events. 
+    //For now we assume there is just one respective function for each of the events:
+    //displayUserMoves() is called when a set of possible user moves is available
+    //displayMoveStatus() is called when any move is being executed (either by an agent or the user)
+
+    //TODO: if necessary we can extend this to register multiple listeners/callbacks for these two events.
 
 var client = Stomp.client(serverURL);
-
-var uiButtons = document.getElementById("buttons");
 
 var moveSetCache = [];
 
@@ -30,16 +35,14 @@ var gotData = function(data){
 }
 
 function processStatusUpdate(msg){
-    uiButtons.innerHTML = "";
-
     //cache this moveset so we can show subtitles and the transcript later on
     moveSetCache = msg.moveSets;
 
-    //we should show buttons if there are user moves
+    //we should update the UI if there are user moves
     for(let moveSet of msg.moveSets){
         if(moveSet.actorIdentifier === "User"){
-            console.log("User actions: ", moveSet.moves);
-            generateUIButtons(moveSet.moves);
+            console.log("Available user moves: ", moveSet.moves);
+            displayUserMoves(moveSet.moves);
         }
     }
 }
@@ -55,30 +58,11 @@ function processMoveStatusUpdate(msg){
     }
 
     console.log("Found move in cache: ", move);
-    if(msg.status === "MOVE_REALIZATION"){
-        //maybe do something like "... is talking"??
-    } else if(msg.status === "MOVE_COMPLETED"){
-        if(move.actorName === "Bob"){
-            postUserMessage(move.opener);
-        } else {
-            postAgentMessage(move.actorName, move.opener);
-        }
-    }
+
+    displayMoveStatus(msg.status, msg.actorIdentifier, move);
 }
 
-function generateUIButtons(moves){
-    for(let move of moves){
-        let button = document.createElement("button");
-        button.innerHTML = move.opener;
-        button.classList.add("button", "blue", "alt");
-        button.addEventListener ("click", function() {
-            buttonPressed(move);
-          });
-        uiButtons.appendChild(button);
-    }
-}
-
-function buttonPressed(move){
+function selectMove(move){
     let data = {
         "cmd" : "move_selected",
         "uiId" : "",
@@ -88,9 +72,8 @@ function buttonPressed(move){
         "userInput" : "",
         "target" : move.target 
     };
-    console.log("User pressed button " + move.moveID);
+    console.log("User selects move " + move.moveID);
     send(JSON.stringify(data));
-    uiButtons.innerHTML = "";
 }
 
 function init(){
