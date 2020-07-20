@@ -18,10 +18,18 @@
 
 <body>
   <div id="container">
-    <div class="title">Chatting with Council of Coaches</div>
+    <div class="title" onclick="toggleStyle()">Chatting with Council of Coaches</div>
     <div id="chatbox">
       <div id="messages"></div>
-      <div id="replies"></div>
+      <div id="full-replies" style="display:none"></div>
+      <div id="short-replies">
+        <div id="reply-options">
+        </div>
+        <div id="reply-selection">
+          <div id="reply-textfield" onclick="showShortReplies()" class="no-reply-selected"></div>
+          <button onclick="sendSelectedMove()">Send</button>
+        </div>
+      </div>
     </div>
   </div>
   

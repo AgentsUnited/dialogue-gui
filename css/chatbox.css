@@ -46,37 +46,6 @@ html, body {
     margin-bottom: 10px;
 }
 
-.time {
-    margin-right: 5px;
-    color: #ccc;
-    font-size: small;
-}
-
-.agent-name {
-    font-weight: bold;
-}
-
-#replies {
-    padding:0px;
-    margin:22px 0px 0px 0px;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-#replies .reply {
-
-}
-
-
-.button {
-    width:100%;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 .Francois {
     color: #98c073;
 }
@@ -87,4 +56,82 @@ html, body {
 
 .You {
     color: #7f85c0;
+}
+
+.time {
+    margin-right: 5px;
+    color: #ccc;
+    font-size: small;
+}
+
+.agent-name {
+    font-weight: bold;
+}
+
+#full-replies {
+    padding:0px;
+    margin:22px 0px 0px 0px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#full-replies .button {
+    width:100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* short replies */
+#reply-options {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
+    height:44px;
+}
+
+
+#reply-options .option {
+    border: 2px solid #7f85c0;
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+    background-color: #e0e2ff;
+    border-radius: 21px;
+    margin: 0px 3px 0px 3px;
+    height: 42px;
+
+}
+
+#reply-selection {
+    display:flex;
+    width:100%;
+    margin-top: 22px;
+}
+
+#reply-textfield {
+    background-color: #fff;
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    min-height: 22px;
+    width: 100%;
+    margin-right: 22px;
+}
+
+.no-reply-selected {
+    color: #ccc;
+}
+
+.reply-selected {
+    color: black;
+}
+
+#reply-selection button {
+    flex: 0 0 auto;
+    padding-right: 42px;
+    padding-left: 42px; 
 }
